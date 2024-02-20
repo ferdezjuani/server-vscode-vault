@@ -18,7 +18,6 @@ app.listen(1337, () => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
 });
 
 app.post("/api/vault", async (req, res) => {
