@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -18,6 +19,7 @@ app.listen(1337, () => {
 });
 
 app.get("/", (req, res) => {
+  res.send("VSCode Vault!");
 });
 
 app.post("/api/vault", async (req, res) => {
@@ -73,9 +75,7 @@ app.get("/api/vault/:id", async (req, res) => {
 // });
 
 mongoose
-  .connect(
-    "mongodb+srv://admin:Yq5IsPvgbCBHa8sZ@vscode-vault-cluster.nhwwpul.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to MongoDB");
   })
